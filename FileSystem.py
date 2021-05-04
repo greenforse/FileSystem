@@ -2,9 +2,12 @@ from Folder import Folder
 from File import File
 from MementoReal import MementoReal
 
-class FileSystem(Folder):
+class FileSystem():
+    def __init__(self):
+        self.root=Folder("C")
 
-    def startRestartState(self,memento):
-        self.name = memento.state[0]
-        content = memento.state[1]
-        self.restartState(content)
+    def createMemento(self):
+        return MementoReal(self.root.copy())
+        
+    def restore(self,memento):
+        self.root=memento.state.copy()

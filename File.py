@@ -9,10 +9,9 @@ class File():
         self.name=name
 
     def copy(self):
-        pass
-
-    def restartState(self):
-        pass
+        copyFile=File(self.name)
+        return copyFile
+        
     def viewContent(self):
         for i in range (self.tire):
             print("-",end="")
