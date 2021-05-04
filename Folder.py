@@ -4,17 +4,19 @@ class Folder():
     def __init__(self,name):
         self.name=name
         self.content=[]
-
+        self.tire=0
     def addContent(self,add):
         self.content.append(add)
+        self.content[len(self.content)-1].addTire(self.tire)
+    def addTire(self,tire):
+        self.tire=tire+1
 
     def viewContent(self):
+        for i in range (self.tire):
+            print("-",end="")
         print(f"{self.name}:")
         for content in self.content:
-            if content is Folder:
-                print("--", end="")
-            else: print("-", end="")
-            print(content.getName())
+            content.viewContent()
 
     def delete(self,name):
         for i in range(len(self.content)):
@@ -28,8 +30,8 @@ class Folder():
         return self.content
 
     def createMemento(self):
-        fileMemento = MementoReal()
-        fileMemento.state(self.copy)
+        fileMemento = MementoReal(self.copy)
+        #fileMemento.state(self.copy)
         return fileMemento
 
     def copy(self):

@@ -9,5 +9,5 @@ class CareTaker():
     def saveState(self,memento):
         self.states.append(memento)
     
-    def restoreMemnto(self,i):
+    def restoreMemento(self,i):
         return self.states[i]

@@ -13,4 +13,10 @@ class File():
 
     def restartState(self):
         pass
+    def viewContent(self):
+        for i in range (self.tire):
+            print("-",end="")
+        print(self.name)
 
+    def addTire(self,tire):
+        self.tire=tire+1
